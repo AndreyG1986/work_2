@@ -44,3 +44,8 @@ class APIAdapter:
 
 api = APIAdapter()
 api.get_aeroplanes('Canada')
+
+
+if __name__=="__main__":
+    # print(api.get_aeroplanes('Canada'))
+    pass
