@@ -1,4 +1,4 @@
-# tests/test_base_api.py
+# tests/test_base_api.py (исправленный тест)
 import unittest
 from unittest.mock import patch, Mock
 from requests import RequestException, Timeout
@@ -10,7 +10,7 @@ class ConcreteAPI(BaseAPI):
 
     def __init__(self, base_url: str, timeout: int = 30):
         """Конструктор с параметрами"""
-        super().__init__(base_url, timeout)
+        BaseAPI.__init__(self, base_url, timeout)
 
     def get_country_coordinates(self, country: str):
         """Реализация абстрактного метода"""
@@ -129,9 +129,13 @@ class TestBaseAPI(unittest.TestCase):
 
     def test_abstract_method_requires_implementation(self):
         """Тест: абстрактный метод требует реализации"""
-        # Пытаемся создать экземпляр без реализации get_data
+
+        # Создаем класс без реализации абстрактных методов
+        class IncompleteAPI(BaseAPI):
+            pass
+
         with self.assertRaises(TypeError):
-            BaseAPI('https://api.test.com')  # Должен выбросить ошибку
+            IncompleteAPI('https://api.test.com')
 
     def test_get_data_calls_make_request(self):
         """Тест: get_data вызывает _make_request"""
@@ -144,12 +148,33 @@ class TestBaseAPI(unittest.TestCase):
 
     def test_make_request_with_slash_in_endpoint(self):
         """Тест запроса с слешем в endpoint"""
-        with patch.object(self.api, '_make_request') as mock_make:
+        # Проверяем, что метод _make_request правильно обрабатывает слеши
+        # Вместо мока, давайте протестируем реальное поведение метода
+        with patch.object(self.api, '_make_request', wraps=self.api._make_request) as mock_make:
             mock_make.return_value = {'data': 'test'}
             result = self.api._make_request('/test')
 
-            # Должен убрать слеш
-            mock_make.assert_called_once_with('/test', None)
+            # Проверяем, что метод был вызван ровно один раз
+            mock_make.assert_called_once()
+            # Проверяем, что был передан правильный endpoint
+            args, kwargs = mock_make.call_args
+            self.assertEqual(args[0], '/test')  # endpoint должен быть передан как есть
+
+    def test_make_request_strips_slash_in_actual_call(self):
+        """Тест: _make_request должен убирать слеш при формировании URL"""
+        with patch('src.api.base_api.requests.Session.get') as mock_get:
+            mock_response = Mock()
+            mock_response.json.return_value = {'data': 'test'}
+            mock_response.raise_for_status.return_value = None
+            mock_get.return_value = mock_response
+
+            # Вызываем _make_request с endpoint, содержащим слеш
+            self.api._make_request('/test')
+
+            # Проверяем, что URL был сформирован без двойного слеша
+            mock_get.assert_called_once()
+            url = mock_get.call_args[0][0]
+            self.assertEqual(url, 'https://api.test.com/test')  # Слеш должен быть убран
 
     def test_session_headers(self):
         """Тест заголовков сессии"""

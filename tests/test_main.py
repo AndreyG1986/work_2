@@ -32,8 +32,8 @@ class TestMain(unittest.TestCase):
         # Проверяем, что API был вызван
         mock_api.get_aeroplanes.assert_called_once_with('Russia')
 
-        # Проверяем, что print вызывался (хотя бы один раз)
-        mock_print.assert_called()
+        # Проверяем, что API был создан с правильными параметрами
+        mock_api_class.assert_called_once_with(timeout=90)
 
     @patch('src.main.AeroplanesAPI')
     @patch('src.main.input')
@@ -52,6 +52,10 @@ class TestMain(unittest.TestCase):
         mock_print.assert_any_call(
             '❌ Не удалось получить данные о самолетах. Проверьте подключение или название страны.')
 
+        # API создается всегда, даже если страна не найдена
+        mock_api_class.assert_called_once_with(timeout=90)
+        mock_api.get_aeroplanes.assert_called_once_with('NonExistentCountry')
+
     @patch('src.main.AeroplanesAPI')
     @patch('src.main.input')
     @patch('src.main.print')
@@ -61,8 +65,15 @@ class TestMain(unittest.TestCase):
 
         user_interaction()
 
+        # Проверяем, что было выведено сообщение об ошибке
         mock_print.assert_any_call('Название страны не может быть пустым')
-        mock_api_class.assert_not_called()  # API не должен вызываться
+
+        # API все равно создается (в начале функции), но get_aeroplanes не вызывается
+        mock_api_class.assert_called_once_with(timeout=90)
+
+        # Проверяем, что get_aeroplanes не вызывался
+        mock_api = mock_api_class.return_value
+        mock_api.get_aeroplanes.assert_not_called()
 
     @patch('src.main.AeroplanesAPI')
     @patch('src.main.input')
@@ -78,6 +89,8 @@ class TestMain(unittest.TestCase):
         user_interaction()
 
         mock_print.assert_any_call('❌ В воздушном пространстве Russia не найдено самолетов')
+        mock_api_class.assert_called_once_with(timeout=90)
+        mock_api.get_aeroplanes.assert_called_once_with('Russia')
 
     @patch('src.main.AeroplanesAPI')
     @patch('src.main.input')
@@ -105,7 +118,7 @@ class TestMain(unittest.TestCase):
 
         # Проверяем, что API был вызван
         mock_api.get_aeroplanes.assert_called_once_with('Russia')
-        mock_print.assert_called()
+        mock_api_class.assert_called_once_with(timeout=90)
 
     @patch('src.main.AeroplanesAPI')
     @patch('src.main.input')
@@ -114,7 +127,7 @@ class TestMain(unittest.TestCase):
         """Тест: неверное значение топ N"""
         mock_input.side_effect = [
             'Russia',  # страна
-            'invalid',  # неверное значение топ N
+            'invalid',  # неверное значение топ N (должно стать 10)
             '',  # фильтр по странам (пусто)
             ''  # фильтр по высоте (пусто)
         ]
@@ -130,7 +143,8 @@ class TestMain(unittest.TestCase):
         user_interaction()
 
         # Должно выполниться без ошибок (используется значение по умолчанию 10)
-        mock_api.get_aeroplanes.assert_called_once()
+        mock_api.get_aeroplanes.assert_called_once_with('Russia')
+        mock_api_class.assert_called_once_with(timeout=90)
 
     @patch('src.main.AeroplanesAPI')
     @patch('src.main.input')
@@ -141,6 +155,27 @@ class TestMain(unittest.TestCase):
 
         with self.assertRaises(KeyboardInterrupt):
             user_interaction()
+
+    @patch('src.main.AeroplanesAPI')
+    @patch('src.main.input')
+    @patch('src.main.print')
+    def test_user_interaction_handles_exception(self, mock_print, mock_input, mock_api_class):
+        """Тест: исключение в API должно проброситься дальше"""
+        mock_input.side_effect = ['Russia', '5', '', '']
+
+        mock_api = Mock()
+        mock_api_class.return_value = mock_api
+        mock_api.get_aeroplanes.side_effect = Exception("Unexpected error")
+
+        # Ожидаем, что исключение пробросится
+        with self.assertRaises(Exception) as context:
+            user_interaction()
+
+        # Проверяем сообщение об ошибке
+        self.assertEqual(str(context.exception), "Unexpected error")
+
+        # Проверяем, что API был вызван
+        mock_api.get_aeroplanes.assert_called_once_with('Russia')
 
 
 if __name__ == "__main__":
