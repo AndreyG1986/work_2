@@ -1,3 +1,4 @@
+# src/models/aeroplane.py
 from typing import Dict, Any, List, Optional
 from dataclasses import dataclass
 
@@ -23,26 +24,31 @@ class Aeroplane:
 
     def _validate_callsign(self):
         """Валидация позывного"""
+        # Разрешаем пустые позывные, заменяя их на "N/A"
         if not self.callsign or not isinstance(self.callsign, str):
-            raise ValueError("Позывной должен быть непустой строкой")
+            self.callsign = "N/A"
+        elif self.callsign.strip() == "":
+            self.callsign = "N/A"
 
     def _validate_country(self):
         """Валидация страны регистрации"""
         if not self.origin_country or not isinstance(self.origin_country, str):
-            raise ValueError("Страна регистрации должна быть непустой строкой")
+            self.origin_country = "Unknown"
+        elif self.origin_country.strip() == "":
+            self.origin_country = "Unknown"
 
     def _validate_velocity(self):
         """Валидация скорости"""
         if not isinstance(self.velocity, (int, float)):
-            raise ValueError("Скорость должна быть числом")
+            self.velocity = 0.0
         if self.velocity < 0:
-            raise ValueError("Скорость не может быть отрицательной")
+            self.velocity = 0.0
 
     def _validate_altitude(self):
         """Валидация высоты"""
         if not isinstance(self.altitude, (int, float)):
-            raise ValueError("Высота должна быть числом")
-        # Высота может быть None или отрицательной (под землей)
+            self.altitude = 0.0
+        # Высота может быть отрицательной (под землей), оставляем как есть
 
     def __lt__(self, other: 'Aeroplane') -> bool:
         """Сравнение по высоте (для сортировки)"""
@@ -61,26 +67,37 @@ class Aeroplane:
         """
         Создание объекта самолета из данных OpenSky API
 
-        Формат state:
-        [
-            icao24, callsign, origin_country, time_position,
-            last_contact, longitude, latitude, baro_altitude,
-            on_ground, velocity, true_track, vertical_rate,
-            sensors, geo_altitude, squawk, spi, position_source
-        ]
+        Индексы массива state (согласно документации OpenSky):
+        0: icao24,        1: callsign,       2: origin_country,
+        3: time_position, 4: last_contact,   5: longitude,
+        6: latitude,      7: baro_altitude,  8: on_ground,
+        9: velocity,      10: true_track,    11: vertical_rate,
+        12: sensors,      13: geo_altitude,  14: squawk,
+        15: spi,          16: position_source
         """
         if not state or len(state) < 10:
             return None
 
-        # Извлекаем нужные поля
-        icao24 = state[0]
-        callsign = (state[1] or "N/A").strip()
-        origin_country = state[2] or "Unknown"
+        # Извлекаем поля с правильными индексами
+        # Обрабатываем callsign - он может быть None или пустым
+        callsign_raw = state[1]
+        if callsign_raw is None or str(callsign_raw).strip() == "":
+            callsign = "N/A"
+        else:
+            callsign = str(callsign_raw).strip()
+
+        origin_country = state[2] if state[2] else "Unknown"
         longitude = state[5]
         latitude = state[6]
-        altitude = state[9] if state[9] is not None else 0  # baro_altitude
-        velocity = state[10] if state[10] is not None else 0
+
+        # Высота: сначала пробуем baro_altitude (индекс 7), затем geo_altitude (индекс 13)
+        altitude = state[7] if state[7] is not None else (state[13] if state[13] is not None else 0.0)
+
+        # Статус на земле (индекс 8)
         on_ground = state[8] if state[8] is not None else False
+
+        # Скорость (индекс 9)
+        velocity = state[9] if state[9] is not None else 0.0
 
         try:
             return cls(
@@ -88,11 +105,12 @@ class Aeroplane:
                 origin_country=origin_country,
                 velocity=float(velocity),
                 altitude=float(altitude),
-                longitude=float(longitude) if longitude else None,
-                latitude=float(latitude) if latitude else None,
+                longitude=float(longitude) if longitude is not None else None,
+                latitude=float(latitude) if latitude is not None else None,
                 on_ground=bool(on_ground)
             )
-        except (ValueError, TypeError):
+        except (ValueError, TypeError) as e:
+            # Тихая обработка ошибки, возвращаем None
             return None
 
     @classmethod

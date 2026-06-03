@@ -1,3 +1,4 @@
+# src/utils/filters.py
 from typing import List, Tuple, Optional
 from src.models.aeroplane import Aeroplane
 
@@ -79,8 +80,14 @@ def get_top_aeroplanes(aeroplanes: List[Aeroplane], n: int) -> List[Aeroplane]:
     return sorted_aeroplanes[:n]
 
 
-def print_aeroplanes(aeroplanes: List[Aeroplane]) -> None:
-    """Вывод информации о самолетах в консоль"""
+def print_aeroplanes(aeroplanes: List[Aeroplane], max_display: int = 20) -> None:
+    """
+    Вывод информации о самолетах в консоль
+
+    Args:
+        aeroplanes: Список самолетов
+        max_display: Максимальное количество для отображения
+    """
     if not aeroplanes:
         print("Самолеты не найдены")
         return
@@ -89,7 +96,8 @@ def print_aeroplanes(aeroplanes: List[Aeroplane]) -> None:
     print(f"Найдено самолетов: {len(aeroplanes)}")
     print(f"{'=' * 80}")
 
-    for i, plane in enumerate(aeroplanes, 1):
+    display_count = min(len(aeroplanes), max_display)
+    for i, plane in enumerate(aeroplanes[:display_count], 1):
         print(f"\n{i}. {plane.callsign}")
         print(f"   Страна регистрации: {plane.origin_country}")
         print(f"   Скорость: {plane.velocity:.2f} м/с ({plane.velocity * 3.6:.2f} км/ч)")
@@ -97,3 +105,6 @@ def print_aeroplanes(aeroplanes: List[Aeroplane]) -> None:
         if plane.longitude and plane.latitude:
             print(f"   Координаты: ({plane.latitude:.4f}, {plane.longitude:.4f})")
         print(f"   На земле: {'Да' if plane.on_ground else 'Нет'}")
+
+    if len(aeroplanes) > max_display:
+        print(f"\n... и еще {len(aeroplanes) - max_display} самолетов")

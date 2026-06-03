@@ -1,3 +1,4 @@
+# src/file_handlers/json_saver.py
 import json
 import os
 from typing import List, Optional
@@ -35,14 +36,41 @@ class JSONSaver(BaseSaver):
             json.dump(data, f, ensure_ascii=False, indent=2)
 
     def add_aeroplane(self, aeroplane: Aeroplane) -> None:
-        """Добавление самолета в файл"""
+        """Добавление самолета в файл (оптимизированная версия)"""
+        # Пропускаем дубликаты по позывному
         data = self._load_data()
-
-        # Проверяем, есть ли уже такой самолет
         aeroplane_dict = aeroplane.to_dict()
-        if aeroplane_dict not in data:
+
+        # Проверяем, есть ли уже такой самолет по позывному
+        exists = any(item.get('callsign') == aeroplane_dict.get('callsign') for item in data)
+        if not exists:
             data.append(aeroplane_dict)
             self._save_data(data)
+
+    def add_aeroplanes_batch(self, aeroplanes: List[Aeroplane]) -> None:
+        """
+        Пакетное добавление самолетов (оптимизировано для большого количества)
+        """
+        if not aeroplanes:
+            return
+
+        # Загружаем существующие данные
+        existing_data = self._load_data()
+        existing_callsigns = {item.get('callsign') for item in existing_data}
+
+        # Добавляем только новые самолеты
+        new_aeroplanes = []
+        for aeroplane in aeroplanes:
+            if aeroplane.callsign not in existing_callsigns:
+                new_aeroplanes.append(aeroplane.to_dict())
+                existing_callsigns.add(aeroplane.callsign)
+
+        if new_aeroplanes:
+            existing_data.extend(new_aeroplanes)
+            self._save_data(existing_data)
+            print(f"  ✅ Добавлено {len(new_aeroplanes)} новых самолетов")
+        else:
+            print(f"  ℹ️ Нет новых самолетов для добавления")
 
     def get_aeroplanes(self, **filters) -> List[Aeroplane]:
         """
