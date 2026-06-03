@@ -18,9 +18,7 @@ class BaseAPI(ABC):
         self.base_url = base_url
         self.timeout = timeout
         self.session = requests.Session()
-        self.session.headers.update({
-            'User-Agent': 'CourseWork/1.0 (Student Project)'
-        })
+        self.session.headers.update({"User-Agent": "CourseWork/1.0 (Student Project)"})
 
     @abstractmethod
     def get_country_coordinates(self, country: str) -> Optional[List[str]]:
@@ -46,11 +44,7 @@ class BaseAPI(ABC):
         url = f"{self.base_url}/{endpoint.lstrip('/')}"
 
         try:
-            response = self.session.get(
-                url,
-                params=params,
-                timeout=self.timeout
-            )
+            response = self.session.get(url, params=params, timeout=self.timeout)
             response.raise_for_status()
             return response.json()
         except requests.exceptions.RequestException as e:

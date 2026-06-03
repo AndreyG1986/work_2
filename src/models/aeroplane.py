@@ -50,20 +50,20 @@ class Aeroplane:
             self.altitude = 0.0
         # Высота может быть отрицательной (под землей), оставляем как есть
 
-    def __lt__(self, other: 'Aeroplane') -> bool:
+    def __lt__(self, other: "Aeroplane") -> bool:
         """Сравнение по высоте (для сортировки)"""
         return self.altitude < other.altitude
 
-    def __gt__(self, other: 'Aeroplane') -> bool:
+    def __gt__(self, other: "Aeroplane") -> bool:
         """Сравнение по высоте (для сортировки)"""
         return self.altitude > other.altitude
 
-    def __eq__(self, other: 'Aeroplane') -> bool:
+    def __eq__(self, other: "Aeroplane") -> bool:
         """Сравнение по позывному"""
         return self.callsign == other.callsign
 
     @classmethod
-    def from_api_state(cls, state: List) -> Optional['Aeroplane']:
+    def from_api_state(cls, state: List) -> Optional["Aeroplane"]:
         """
         Создание объекта самолета из данных OpenSky API
 
@@ -107,23 +107,23 @@ class Aeroplane:
                 altitude=float(altitude),
                 longitude=float(longitude) if longitude is not None else None,
                 latitude=float(latitude) if latitude is not None else None,
-                on_ground=bool(on_ground)
+                on_ground=bool(on_ground),
             )
         except (ValueError, TypeError) as e:
             # Тихая обработка ошибки, возвращаем None
             return None
 
     @classmethod
-    def cast_to_object_list(cls, api_response: Dict[str, Any]) -> List['Aeroplane']:
+    def cast_to_object_list(cls, api_response: Dict[str, Any]) -> List["Aeroplane"]:
         """
         Преобразование ответа API в список объектов Aeroplane
         """
         aeroplanes = []
 
-        if not api_response or 'states' not in api_response:
+        if not api_response or "states" not in api_response:
             return aeroplanes
 
-        states = api_response['states']
+        states = api_response["states"]
         if not states:
             return aeroplanes
 
@@ -137,11 +137,11 @@ class Aeroplane:
     def to_dict(self) -> Dict[str, Any]:
         """Преобразование объекта в словарь для сохранения"""
         return {
-            'callsign': self.callsign,
-            'origin_country': self.origin_country,
-            'velocity': self.velocity,
-            'altitude': self.altitude,
-            'longitude': self.longitude,
-            'latitude': self.latitude,
-            'on_ground': self.on_ground
+            "callsign": self.callsign,
+            "origin_country": self.origin_country,
+            "velocity": self.velocity,
+            "altitude": self.altitude,
+            "longitude": self.longitude,
+            "latitude": self.latitude,
+            "on_ground": self.on_ground,
         }

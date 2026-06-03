@@ -6,7 +6,7 @@ from src.utils.filters import (
     filter_by_altitude_range,
     sort_by_altitude,
     get_top_aeroplanes,
-    print_aeroplanes
+    print_aeroplanes,
 )
 
 

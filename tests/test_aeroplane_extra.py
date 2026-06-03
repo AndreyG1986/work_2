@@ -27,20 +27,20 @@ class TestAeroplaneExtra(unittest.TestCase):
         result = Aeroplane.cast_to_object_list({})
         self.assertEqual(result, [])
 
-        result = Aeroplane.cast_to_object_list({'states': None})
+        result = Aeroplane.cast_to_object_list({"states": None})
         self.assertEqual(result, [])
 
-        result = Aeroplane.cast_to_object_list({'states': []})
+        result = Aeroplane.cast_to_object_list({"states": []})
         self.assertEqual(result, [])
 
     def test_cast_to_object_list_with_invalid_states(self):
         """Тест пропуска некорректных состояний"""
         api_response = {
-            'states': [
+            "states": [
                 None,  # Некорректное состояние
                 [],  # Пустой список
-                ['valid', 'test', 'country', 1, 2, 3, 4, 5, 6, 7],  # Короткий список
-                ['a', 'b', 'c', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],  # Полный
+                ["valid", "test", "country", 1, 2, 3, 4, 5, 6, 7],  # Короткий список
+                ["a", "b", "c", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],  # Полный
             ]
         }
 
@@ -65,8 +65,23 @@ class TestAeroplaneExtra(unittest.TestCase):
     def test_from_api_state_with_negative_altitude(self):
         """Тест с отрицательной высотой (под землей)"""
         api_state = [
-            "abc123", "TEST", "Country", 1, 2, 3, 4, -500,  # Отрицательная высота
-            False, 100, 0, 0, [], None, "1234", False, 0
+            "abc123",
+            "TEST",
+            "Country",
+            1,
+            2,
+            3,
+            4,
+            -500,  # Отрицательная высота
+            False,
+            100,
+            0,
+            0,
+            [],
+            None,
+            "1234",
+            False,
+            0,
         ]
 
         plane = Aeroplane.from_api_state(api_state)
@@ -77,8 +92,23 @@ class TestAeroplaneExtra(unittest.TestCase):
     def test_from_api_state_with_geo_altitude(self):
         """Тест использования geo_altitude когда baro_altitude отсутствует"""
         api_state = [
-            "abc123", "TEST", "Country", 1, 2, 3, 4, None,  # baro_altitude = None
-            False, 100, 0, 0, [], 15000, "1234", False, 0  # geo_altitude = 15000
+            "abc123",
+            "TEST",
+            "Country",
+            1,
+            2,
+            3,
+            4,
+            None,  # baro_altitude = None
+            False,
+            100,
+            0,
+            0,
+            [],
+            15000,
+            "1234",
+            False,
+            0,  # geo_altitude = 15000
         ]
 
         plane = Aeroplane.from_api_state(api_state)
@@ -95,18 +125,18 @@ class TestAeroplaneExtra(unittest.TestCase):
             altitude=12000.75,
             longitude=55.123456,
             latitude=37.654321,
-            on_ground=False
+            on_ground=False,
         )
 
         plane_dict = plane.to_dict()
 
-        self.assertEqual(plane_dict['callsign'], "TEST123")
-        self.assertEqual(plane_dict['origin_country'], "Testland")
-        self.assertEqual(plane_dict['velocity'], 300.50)
-        self.assertEqual(plane_dict['altitude'], 12000.75)
-        self.assertEqual(plane_dict['longitude'], 55.123456)
-        self.assertEqual(plane_dict['latitude'], 37.654321)
-        self.assertEqual(plane_dict['on_ground'], False)
+        self.assertEqual(plane_dict["callsign"], "TEST123")
+        self.assertEqual(plane_dict["origin_country"], "Testland")
+        self.assertEqual(plane_dict["velocity"], 300.50)
+        self.assertEqual(plane_dict["altitude"], 12000.75)
+        self.assertEqual(plane_dict["longitude"], 55.123456)
+        self.assertEqual(plane_dict["latitude"], 37.654321)
+        self.assertEqual(plane_dict["on_ground"], False)
 
     def test_sorting_with_equal_altitudes(self):
         """Тест сортировки при одинаковых высотах"""

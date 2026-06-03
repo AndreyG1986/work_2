@@ -19,14 +19,10 @@ def filter_by_country(aeroplanes: List[Aeroplane], countries: List[str]) -> List
 
     countries_lower = [c.lower().strip() for c in countries]
 
-    return [
-        a for a in aeroplanes
-        if a.origin_country.lower() in countries_lower
-    ]
+    return [a for a in aeroplanes if a.origin_country.lower() in countries_lower]
 
 
-def filter_by_altitude_range(aeroplanes: List[Aeroplane],
-                             altitude_range: str) -> List[Aeroplane]:
+def filter_by_altitude_range(aeroplanes: List[Aeroplane], altitude_range: str) -> List[Aeroplane]:
     """
     Фильтрация самолетов по диапазону высот
 
@@ -42,19 +38,16 @@ def filter_by_altitude_range(aeroplanes: List[Aeroplane],
 
     try:
         # Парсим диапазон
-        altitude_range = altitude_range.replace(' ', '')
-        if '-' in altitude_range:
-            parts = altitude_range.split('-')
-            min_alt = float(parts[0]) if parts[0] else -float('inf')
-            max_alt = float(parts[1]) if parts[1] else float('inf')
+        altitude_range = altitude_range.replace(" ", "")
+        if "-" in altitude_range:
+            parts = altitude_range.split("-")
+            min_alt = float(parts[0]) if parts[0] else -float("inf")
+            max_alt = float(parts[1]) if parts[1] else float("inf")
         else:
             # Если только одно число - ищем точное совпадение
             min_alt = max_alt = float(altitude_range)
 
-        return [
-            a for a in aeroplanes
-            if min_alt <= a.altitude <= max_alt
-        ]
+        return [a for a in aeroplanes if min_alt <= a.altitude <= max_alt]
     except (ValueError, TypeError):
         print("Неверный формат диапазона высот. Используйте формат: 10000-20000")
         return aeroplanes

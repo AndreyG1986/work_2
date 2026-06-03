@@ -2,12 +2,7 @@
 from src.api.aeroplanes_api import AeroplanesAPI
 from src.models.aeroplane import Aeroplane
 from src.file_handlers.json_saver import JSONSaver
-from src.utils.filters import (
-    filter_by_country,
-    filter_by_altitude_range,
-    get_top_aeroplanes,
-    print_aeroplanes
-)
+from src.utils.filters import filter_by_country, filter_by_altitude_range, get_top_aeroplanes, print_aeroplanes
 from tqdm import tqdm
 
 
@@ -33,7 +28,7 @@ def user_interaction():
     # Получение информации о самолетах
     aeroplanes_data = api.get_aeroplanes(country)
 
-    if not aeroplanes_data or 'states' not in aeroplanes_data:
+    if not aeroplanes_data or "states" not in aeroplanes_data:
         print("❌ Не удалось получить данные о самолетах. Проверьте подключение или название страны.")
         return
 
@@ -137,6 +132,7 @@ def main():
     except Exception as e:
         print(f"\n❌ Произошла ошибка: {e}")
         import traceback
+
         traceback.print_exc()
 
 

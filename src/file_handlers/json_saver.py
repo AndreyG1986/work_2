@@ -25,14 +25,14 @@ class JSONSaver(BaseSaver):
             return []
 
         try:
-            with open(self.filepath, 'r', encoding='utf-8') as f:
+            with open(self.filepath, "r", encoding="utf-8") as f:
                 return json.load(f)
         except (json.JSONDecodeError, FileNotFoundError):
             return []
 
     def _save_data(self, data: List[dict]) -> None:
         """Сохранение данных в JSON файл"""
-        with open(self.filepath, 'w', encoding='utf-8') as f:
+        with open(self.filepath, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
 
     def add_aeroplane(self, aeroplane: Aeroplane) -> None:
@@ -42,7 +42,7 @@ class JSONSaver(BaseSaver):
         aeroplane_dict = aeroplane.to_dict()
 
         # Проверяем, есть ли уже такой самолет по позывному
-        exists = any(item.get('callsign') == aeroplane_dict.get('callsign') for item in data)
+        exists = any(item.get("callsign") == aeroplane_dict.get("callsign") for item in data)
         if not exists:
             data.append(aeroplane_dict)
             self._save_data(data)
@@ -56,7 +56,7 @@ class JSONSaver(BaseSaver):
 
         # Загружаем существующие данные
         existing_data = self._load_data()
-        existing_callsigns = {item.get('callsign') for item in existing_data}
+        existing_callsigns = {item.get("callsign") for item in existing_data}
 
         # Добавляем только новые самолеты
         new_aeroplanes = []
@@ -86,27 +86,27 @@ class JSONSaver(BaseSaver):
 
         for item in data:
             # Применяем фильтры
-            if 'origin_country' in filters:
-                if item['origin_country'] != filters['origin_country']:
+            if "origin_country" in filters:
+                if item["origin_country"] != filters["origin_country"]:
                     continue
 
-            if 'min_altitude' in filters:
-                if item['altitude'] < filters['min_altitude']:
+            if "min_altitude" in filters:
+                if item["altitude"] < filters["min_altitude"]:
                     continue
 
-            if 'max_altitude' in filters:
-                if item['altitude'] > filters['max_altitude']:
+            if "max_altitude" in filters:
+                if item["altitude"] > filters["max_altitude"]:
                     continue
 
             try:
                 aeroplane = Aeroplane(
-                    callsign=item['callsign'],
-                    origin_country=item['origin_country'],
-                    velocity=item['velocity'],
-                    altitude=item['altitude'],
-                    longitude=item.get('longitude'),
-                    latitude=item.get('latitude'),
-                    on_ground=item.get('on_ground')
+                    callsign=item["callsign"],
+                    origin_country=item["origin_country"],
+                    velocity=item["velocity"],
+                    altitude=item["altitude"],
+                    longitude=item.get("longitude"),
+                    latitude=item.get("latitude"),
+                    on_ground=item.get("on_ground"),
                 )
                 aeroplanes.append(aeroplane)
             except ValueError:

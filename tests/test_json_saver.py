@@ -33,7 +33,7 @@ class TestJSONSaver(unittest.TestCase):
 
         data = self.saver._load_data()
         self.assertEqual(len(data), 1)
-        self.assertEqual(data[0]['callsign'], "UAL1621")
+        self.assertEqual(data[0]["callsign"], "UAL1621")
 
     def test_add_aeroplane_duplicate(self):
         """Тест добавления дубликата"""
@@ -111,7 +111,7 @@ class TestJSONSaver(unittest.TestCase):
 
         data = self.saver._load_data()
         self.assertEqual(len(data), 2)
-        callsigns = [item['callsign'] for item in data]
+        callsigns = [item["callsign"] for item in data]
         self.assertNotIn("UAL1621", callsigns)
 
     def test_delete_aeroplane_not_exists(self):
