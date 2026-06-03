@@ -44800,5 +44800,815 @@
     "longitude": 22.6078,
     "latitude": 57.5569,
     "on_ground": false
+  },
+  {
+    "callsign": "DMUHF",
+    "origin_country": "Germany",
+    "velocity": 29.69,
+    "altitude": 160.02,
+    "longitude": 10.1753,
+    "latitude": 52.3242,
+    "on_ground": false
+  },
+  {
+    "callsign": "DFUNI",
+    "origin_country": "Germany",
+    "velocity": 0.0,
+    "altitude": 0.0,
+    "longitude": 7.1676,
+    "latitude": 50.7671,
+    "on_ground": true
+  },
+  {
+    "callsign": "OEALK",
+    "origin_country": "Austria",
+    "velocity": 46.75,
+    "altitude": 906.78,
+    "longitude": 9.0526,
+    "latitude": 47.756,
+    "on_ground": false
+  },
+  {
+    "callsign": "HBGAC",
+    "origin_country": "Switzerland",
+    "velocity": 81.72,
+    "altitude": 914.4,
+    "longitude": 8.3603,
+    "latitude": 47.3288,
+    "on_ground": false
+  },
+  {
+    "callsign": "PGT388P",
+    "origin_country": "Turkey",
+    "velocity": 3.86,
+    "altitude": 0.0,
+    "longitude": 11.7783,
+    "latitude": 48.3567,
+    "on_ground": true
+  },
+  {
+    "callsign": "DMUAC",
+    "origin_country": "Germany",
+    "velocity": 44.88,
+    "altitude": 876.3,
+    "longitude": 10.6671,
+    "latitude": 49.3687,
+    "on_ground": false
+  },
+  {
+    "callsign": "ENT2BY",
+    "origin_country": "Poland",
+    "velocity": 185.22,
+    "altitude": 4838.7,
+    "longitude": 7.7946,
+    "latitude": 48.2089,
+    "on_ground": false
+  },
+  {
+    "callsign": "TVF35DL",
+    "origin_country": "France",
+    "velocity": 0.0,
+    "altitude": 0.0,
+    "longitude": 14.2647,
+    "latitude": 50.1043,
+    "on_ground": true
+  },
+  {
+    "callsign": "DERLE",
+    "origin_country": "Germany",
+    "velocity": 34.34,
+    "altitude": 617.22,
+    "longitude": 8.1607,
+    "latitude": 50.675,
+    "on_ground": false
+  },
+  {
+    "callsign": "BEL9BP",
+    "origin_country": "Belgium",
+    "velocity": 100.33,
+    "altitude": 1051.56,
+    "longitude": 11.7131,
+    "latitude": 48.3589,
+    "on_ground": false
+  },
+  {
+    "callsign": "CHX54",
+    "origin_country": "Germany",
+    "velocity": 31.02,
+    "altitude": 304.8,
+    "longitude": 7.6856,
+    "latitude": 48.0217,
+    "on_ground": false
+  },
+  {
+    "callsign": "N158DG",
+    "origin_country": "United States",
+    "velocity": 93.32,
+    "altitude": 670.56,
+    "longitude": 8.3342,
+    "latitude": 52.6419,
+    "on_ground": false
+  },
+  {
+    "callsign": "CHX51",
+    "origin_country": "Germany",
+    "velocity": 63.81,
+    "altitude": 617.22,
+    "longitude": 8.9364,
+    "latitude": 49.1319,
+    "on_ground": false
+  },
+  {
+    "callsign": "DHDSU",
+    "origin_country": "Germany",
+    "velocity": 5.37,
+    "altitude": 944.88,
+    "longitude": 8.2569,
+    "latitude": 48.7084,
+    "on_ground": false
+  },
+  {
+    "callsign": "SALTY11",
+    "origin_country": "United States",
+    "velocity": 67.63,
+    "altitude": 1097.28,
+    "longitude": 10.7024,
+    "latitude": 49.275,
+    "on_ground": false
+  },
+  {
+    "callsign": "NCG04",
+    "origin_country": "Kingdom of the Netherlands",
+    "velocity": 59.32,
+    "altitude": 373.38,
+    "longitude": 6.0238,
+    "latitude": 53.4109,
+    "on_ground": false
+  },
+  {
+    "callsign": "DERHI",
+    "origin_country": "Germany",
+    "velocity": 13.98,
+    "altitude": 312.42,
+    "longitude": 12.5227,
+    "latitude": 48.9004,
+    "on_ground": false
+  },
+  {
+    "callsign": "EWG9KG",
+    "origin_country": "Germany",
+    "velocity": 182.26,
+    "altitude": 4983.48,
+    "longitude": 12.9817,
+    "latitude": 52.1028,
+    "on_ground": false
+  },
+  {
+    "callsign": "UAE9963",
+    "origin_country": "United Arab Emirates",
+    "velocity": 206.49,
+    "altitude": 6667.5,
+    "longitude": 7.5184,
+    "latitude": 50.5676,
+    "on_ground": false
+  },
+  {
+    "callsign": "DBETI",
+    "origin_country": "Germany",
+    "velocity": 197.53,
+    "altitude": 4061.46,
+    "longitude": 9.3132,
+    "latitude": 48.2077,
+    "on_ground": false
+  },
+  {
+    "callsign": "QTR9C",
+    "origin_country": "Qatar",
+    "velocity": 5.14,
+    "altitude": 0.0,
+    "longitude": 11.7789,
+    "latitude": 48.3472,
+    "on_ground": true
+  },
+  {
+    "callsign": "AUA66A",
+    "origin_country": "Latvia",
+    "velocity": 111.46,
+    "altitude": 2103.12,
+    "longitude": 14.127,
+    "latitude": 50.1535,
+    "on_ground": false
+  },
+  {
+    "callsign": "DEALF",
+    "origin_country": "Germany",
+    "velocity": 46.64,
+    "altitude": 312.42,
+    "longitude": 12.2921,
+    "latitude": 53.9097,
+    "on_ground": false
+  },
+  {
+    "callsign": "AP1",
+    "origin_country": "Germany",
+    "velocity": 10.8,
+    "altitude": 0.0,
+    "longitude": 9.2015,
+    "latitude": 48.6882,
+    "on_ground": true
+  },
+  {
+    "callsign": "RGA02",
+    "origin_country": "Switzerland",
+    "velocity": 75.16,
+    "altitude": 1036.32,
+    "longitude": 7.764,
+    "latitude": 47.8499,
+    "on_ground": false
+  },
+  {
+    "callsign": "DIFLE",
+    "origin_country": "Germany",
+    "velocity": 33.09,
+    "altitude": 83.82,
+    "longitude": 7.8269,
+    "latitude": 53.7071,
+    "on_ground": false
+  },
+  {
+    "callsign": "MARTIN3",
+    "origin_country": "Switzerland",
+    "velocity": 53.57,
+    "altitude": 617.22,
+    "longitude": 14.0063,
+    "latitude": 48.1307,
+    "on_ground": false
+  },
+  {
+    "callsign": "RJA124",
+    "origin_country": "Jordan",
+    "velocity": 11.32,
+    "altitude": 0.0,
+    "longitude": 11.7896,
+    "latitude": 48.3475,
+    "on_ground": true
+  },
+  {
+    "callsign": "DFALL",
+    "origin_country": "Germany",
+    "velocity": 80.84,
+    "altitude": 2987.04,
+    "longitude": 9.9959,
+    "latitude": 52.1352,
+    "on_ground": false
+  },
+  {
+    "callsign": "HBZVC",
+    "origin_country": "Switzerland",
+    "velocity": 38.17,
+    "altitude": 1371.6,
+    "longitude": 11.6021,
+    "latitude": 47.8589,
+    "on_ground": false
+  },
+  {
+    "callsign": "DGJ536",
+    "origin_country": "Germany",
+    "velocity": 7.46,
+    "altitude": 0.0,
+    "longitude": 8.3317,
+    "latitude": 54.9107,
+    "on_ground": true
+  },
+  {
+    "callsign": "DEFMV",
+    "origin_country": "Germany",
+    "velocity": 45.18,
+    "altitude": 975.36,
+    "longitude": 9.688,
+    "latitude": 47.438,
+    "on_ground": false
+  },
+  {
+    "callsign": "SWR1488",
+    "origin_country": "Switzerland",
+    "velocity": 0.0,
+    "altitude": 0.0,
+    "longitude": 8.5599,
+    "latitude": 47.4466,
+    "on_ground": true
+  },
+  {
+    "callsign": "DLH6HE",
+    "origin_country": "Germany",
+    "velocity": 199.93,
+    "altitude": 3931.92,
+    "longitude": 9.1416,
+    "latitude": 49.7577,
+    "on_ground": false
+  },
+  {
+    "callsign": "DEJET",
+    "origin_country": "Germany",
+    "velocity": 66.16,
+    "altitude": 845.82,
+    "longitude": 8.6287,
+    "latitude": 51.1311,
+    "on_ground": false
+  },
+  {
+    "callsign": "DLH458",
+    "origin_country": "Germany",
+    "velocity": 193.21,
+    "altitude": 4130.04,
+    "longitude": 11.4764,
+    "latitude": 48.8199,
+    "on_ground": false
+  },
+  {
+    "callsign": "SWR52",
+    "origin_country": "Switzerland",
+    "velocity": 0.0,
+    "altitude": 0.0,
+    "longitude": 8.5577,
+    "latitude": 47.4613,
+    "on_ground": true
+  },
+  {
+    "callsign": "DLH9YW",
+    "origin_country": "Germany",
+    "velocity": 4.37,
+    "altitude": 0.0,
+    "longitude": 8.5863,
+    "latitude": 50.0454,
+    "on_ground": true
+  },
+  {
+    "callsign": "DLH6VX",
+    "origin_country": "Germany",
+    "velocity": 5.92,
+    "altitude": 0.0,
+    "longitude": 8.5669,
+    "latitude": 50.0422,
+    "on_ground": true
+  },
+  {
+    "callsign": "PHKFZ",
+    "origin_country": "Kingdom of the Netherlands",
+    "velocity": 61.06,
+    "altitude": 388.62,
+    "longitude": 6.4659,
+    "latitude": 53.2086,
+    "on_ground": false
+  },
+  {
+    "callsign": "DLH066",
+    "origin_country": "Germany",
+    "velocity": 8.23,
+    "altitude": 0.0,
+    "longitude": 8.5949,
+    "latitude": 50.0484,
+    "on_ground": true
+  },
+  {
+    "callsign": "TE21",
+    "origin_country": "Switzerland",
+    "velocity": 0.45,
+    "altitude": 0.0,
+    "longitude": 8.5542,
+    "latitude": 47.4632,
+    "on_ground": true
+  },
+  {
+    "callsign": "TE22",
+    "origin_country": "Switzerland",
+    "velocity": 0.06,
+    "altitude": 0.0,
+    "longitude": 8.5574,
+    "latitude": 47.4534,
+    "on_ground": true
+  },
+  {
+    "callsign": "DLH336",
+    "origin_country": "Germany",
+    "velocity": 155.01,
+    "altitude": 2926.08,
+    "longitude": 8.7779,
+    "latitude": 49.879,
+    "on_ground": false
+  },
+  {
+    "callsign": "NJE921M",
+    "origin_country": "Portugal",
+    "velocity": 3.6,
+    "altitude": 0.0,
+    "longitude": 7.1253,
+    "latitude": 50.872,
+    "on_ground": true
+  },
+  {
+    "callsign": "CFG2TL",
+    "origin_country": "Germany",
+    "velocity": 108.16,
+    "altitude": 922.02,
+    "longitude": 8.5458,
+    "latitude": 49.9578,
+    "on_ground": false
+  },
+  {
+    "callsign": "CFG4822",
+    "origin_country": "Germany",
+    "velocity": 5.66,
+    "altitude": 0.0,
+    "longitude": 10.0022,
+    "latitude": 53.6351,
+    "on_ground": true
+  },
+  {
+    "callsign": "ATL781",
+    "origin_country": "Switzerland",
+    "velocity": 0.45,
+    "altitude": 0.0,
+    "longitude": 8.5571,
+    "latitude": 47.4537,
+    "on_ground": true
+  },
+  {
+    "callsign": "SWR841C",
+    "origin_country": "Switzerland",
+    "velocity": 5.14,
+    "altitude": 0.0,
+    "longitude": 8.5558,
+    "latitude": 47.4525,
+    "on_ground": true
+  },
+  {
+    "callsign": "DLH1YF",
+    "origin_country": "Germany",
+    "velocity": 0.0,
+    "altitude": 0.0,
+    "longitude": 9.1943,
+    "latitude": 48.6882,
+    "on_ground": true
+  },
+  {
+    "callsign": "SWR478V",
+    "origin_country": "Switzerland",
+    "velocity": 0.0,
+    "altitude": 411.48,
+    "longitude": 8.5598,
+    "latitude": 47.447,
+    "on_ground": true
+  },
+  {
+    "callsign": "SWR854",
+    "origin_country": "Switzerland",
+    "velocity": 7.72,
+    "altitude": 419.1,
+    "longitude": 8.5549,
+    "latitude": 47.454,
+    "on_ground": true
+  },
+  {
+    "callsign": "DHTMX",
+    "origin_country": "Germany",
+    "velocity": 58.9,
+    "altitude": 982.98,
+    "longitude": 11.7535,
+    "latitude": 47.902,
+    "on_ground": false
+  },
+  {
+    "callsign": "DEIMZ",
+    "origin_country": "Germany",
+    "velocity": 47.51,
+    "altitude": 876.3,
+    "longitude": 6.9094,
+    "latitude": 51.5101,
+    "on_ground": false
+  },
+  {
+    "callsign": "DIANA1",
+    "origin_country": "Switzerland",
+    "velocity": 18.52,
+    "altitude": 0.0,
+    "longitude": 8.5316,
+    "latitude": 47.4766,
+    "on_ground": true
+  },
+  {
+    "callsign": "HSOWA3",
+    "origin_country": "Germany",
+    "velocity": 69.49,
+    "altitude": 320.04,
+    "longitude": 6.6852,
+    "latitude": 53.6191,
+    "on_ground": false
+  },
+  {
+    "callsign": "ORION1",
+    "origin_country": "Switzerland",
+    "velocity": 7.46,
+    "altitude": 0.0,
+    "longitude": 8.5611,
+    "latitude": 47.4489,
+    "on_ground": true
+  },
+  {
+    "callsign": "EUGEN15",
+    "origin_country": "Switzerland",
+    "velocity": 4.37,
+    "altitude": 0.0,
+    "longitude": 8.5624,
+    "latitude": 47.4482,
+    "on_ground": true
+  },
+  {
+    "callsign": "CHX61",
+    "origin_country": "Germany",
+    "velocity": 61.54,
+    "altitude": 670.56,
+    "longitude": 10.8776,
+    "latitude": 51.8222,
+    "on_ground": false
+  },
+  {
+    "callsign": "13244R6A",
+    "origin_country": "Germany",
+    "velocity": 0.0,
+    "altitude": 0.0,
+    "longitude": 9.8367,
+    "latitude": 53.5326,
+    "on_ground": true
+  },
+  {
+    "callsign": "CHX63",
+    "origin_country": "Germany",
+    "velocity": 63.72,
+    "altitude": 312.42,
+    "longitude": 12.2443,
+    "latitude": 51.2705,
+    "on_ground": false
+  },
+  {
+    "callsign": "TRA4U",
+    "origin_country": "Kingdom of the Netherlands",
+    "velocity": 238.1,
+    "altitude": 7658.1,
+    "longitude": 6.2359,
+    "latitude": 51.6793,
+    "on_ground": false
+  },
+  {
+    "callsign": "OKDUD52",
+    "origin_country": "Czech Republic",
+    "velocity": 28.34,
+    "altitude": 403.86,
+    "longitude": 14.8979,
+    "latitude": 50.2391,
+    "on_ground": false
+  },
+  {
+    "callsign": "DITMM",
+    "origin_country": "Germany",
+    "velocity": 84.21,
+    "altitude": 441.96,
+    "longitude": 7.8669,
+    "latitude": 48.4168,
+    "on_ground": false
+  },
+  {
+    "callsign": "DECAM",
+    "origin_country": "Germany",
+    "velocity": 66.8,
+    "altitude": 716.28,
+    "longitude": 13.023,
+    "latitude": 47.7698,
+    "on_ground": false
+  },
+  {
+    "callsign": "CHX13",
+    "origin_country": "Germany",
+    "velocity": 48.83,
+    "altitude": 388.62,
+    "longitude": 8.5412,
+    "latitude": 51.9845,
+    "on_ground": false
+  },
+  {
+    "callsign": "CHX12",
+    "origin_country": "Germany",
+    "velocity": 58.68,
+    "altitude": 259.08,
+    "longitude": 10.6769,
+    "latitude": 53.8797,
+    "on_ground": false
+  },
+  {
+    "callsign": "SXS7HD",
+    "origin_country": "Turkey",
+    "velocity": 168.57,
+    "altitude": 4107.18,
+    "longitude": 11.999,
+    "latitude": 48.1164,
+    "on_ground": false
+  },
+  {
+    "callsign": "DEBPF",
+    "origin_country": "Germany",
+    "velocity": 37.95,
+    "altitude": 731.52,
+    "longitude": 8.4553,
+    "latitude": 49.44,
+    "on_ground": false
+  },
+  {
+    "callsign": "CEF05D",
+    "origin_country": "Czech Republic",
+    "velocity": 11.83,
+    "altitude": 0.0,
+    "longitude": 14.5487,
+    "latitude": 50.1257,
+    "on_ground": true
+  },
+  {
+    "callsign": "M28A",
+    "origin_country": "Germany",
+    "velocity": 65.73,
+    "altitude": 1927.86,
+    "longitude": 9.4031,
+    "latitude": 51.889,
+    "on_ground": false
+  },
+  {
+    "callsign": "SXS7KJ",
+    "origin_country": "Turkey",
+    "velocity": 152.61,
+    "altitude": 4953.0,
+    "longitude": 13.8653,
+    "latitude": 50.9251,
+    "on_ground": false
+  },
+  {
+    "callsign": "TRA28U",
+    "origin_country": "Kingdom of the Netherlands",
+    "velocity": 116.88,
+    "altitude": 3284.22,
+    "longitude": 11.1847,
+    "latitude": 47.3217,
+    "on_ground": false
+  },
+  {
+    "callsign": "DMVIH",
+    "origin_country": "Germany",
+    "velocity": 40.07,
+    "altitude": 769.62,
+    "longitude": 10.9026,
+    "latitude": 49.0163,
+    "on_ground": false
+  },
+  {
+    "callsign": "DMMDG",
+    "origin_country": "Germany",
+    "velocity": 70.03,
+    "altitude": 1333.5,
+    "longitude": 10.4825,
+    "latitude": 48.7836,
+    "on_ground": false
+  },
+  {
+    "callsign": "CHX90",
+    "origin_country": "Germany",
+    "velocity": 55.49,
+    "altitude": 937.26,
+    "longitude": 8.6971,
+    "latitude": 49.6973,
+    "on_ground": false
+  },
+  {
+    "callsign": "EWG5Z",
+    "origin_country": "Germany",
+    "velocity": 147.73,
+    "altitude": 3528.06,
+    "longitude": 11.5761,
+    "latitude": 48.5572,
+    "on_ground": false
+  },
+  {
+    "callsign": "T8YH",
+    "origin_country": "Malta",
+    "velocity": 219.96,
+    "altitude": 11582.4,
+    "longitude": 8.8463,
+    "latitude": 52.2963,
+    "on_ground": false
+  },
+  {
+    "callsign": "RYR82JL",
+    "origin_country": "Malta",
+    "velocity": 180.21,
+    "altitude": 4198.62,
+    "longitude": 9.395,
+    "latitude": 53.4659,
+    "on_ground": false
+  },
+  {
+    "callsign": "RYR6V",
+    "origin_country": "Malta",
+    "velocity": 0.0,
+    "altitude": 0.0,
+    "longitude": 13.5086,
+    "latitude": 52.3679,
+    "on_ground": true
+  },
+  {
+    "callsign": "SWR77M",
+    "origin_country": "Switzerland",
+    "velocity": 0.0,
+    "altitude": 419.1,
+    "longitude": 8.5678,
+    "latitude": 47.4551,
+    "on_ground": true
+  },
+  {
+    "callsign": "SWR9D",
+    "origin_country": "Switzerland",
+    "velocity": 0.0,
+    "altitude": 419.1,
+    "longitude": 8.556,
+    "latitude": 47.4559,
+    "on_ground": true
+  },
+  {
+    "callsign": "SWR374P",
+    "origin_country": "Switzerland",
+    "velocity": 7.2,
+    "altitude": 0.0,
+    "longitude": 8.564,
+    "latitude": 47.4558,
+    "on_ground": true
+  },
+  {
+    "callsign": "POF75",
+    "origin_country": "France",
+    "velocity": 118.16,
+    "altitude": 5516.88,
+    "longitude": 8.3985,
+    "latitude": 49.4667,
+    "on_ground": false
+  },
+  {
+    "callsign": "QGA32A",
+    "origin_country": "Germany",
+    "velocity": 145.35,
+    "altitude": 1531.62,
+    "longitude": 11.2161,
+    "latitude": 48.5639,
+    "on_ground": false
+  },
+  {
+    "callsign": "OCN8LQ",
+    "origin_country": "Germany",
+    "velocity": 129.08,
+    "altitude": 1539.24,
+    "longitude": 11.725,
+    "latitude": 48.2702,
+    "on_ground": false
+  },
+  {
+    "callsign": "DLH6RF",
+    "origin_country": "Germany",
+    "velocity": 213.39,
+    "altitude": 12961.62,
+    "longitude": 11.251,
+    "latitude": 49.164,
+    "on_ground": false
+  },
+  {
+    "callsign": "DLH3HW",
+    "origin_country": "Germany",
+    "velocity": 6.69,
+    "altitude": 0.0,
+    "longitude": 14.2611,
+    "latitude": 50.1044,
+    "on_ground": true
+  },
+  {
+    "callsign": "OCN7QR",
+    "origin_country": "Germany",
+    "velocity": 216.62,
+    "altitude": 4602.48,
+    "longitude": 12.214,
+    "latitude": 47.9361,
+    "on_ground": false
+  },
+  {
+    "callsign": "SWR948D",
+    "origin_country": "Switzerland",
+    "velocity": 0.0,
+    "altitude": 419.1,
+    "longitude": 8.5565,
+    "latitude": 47.4536,
+    "on_ground": true
   }
 ]
